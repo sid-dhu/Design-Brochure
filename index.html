@@ -297,6 +297,107 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;heigh
   .sec{padding:60px 5vw;}
   .sum-panel{padding:60px 5vw;}
 }
+/* ── BUDGET SECTION ── */
+.budget-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;}
+.budget-card{background:var(--cream);border:1.5px solid var(--border);padding:1.6rem;cursor:pointer;transition:all .3s;position:relative;}
+.budget-card:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(0,0,0,.08);}
+.budget-card.sel{border-color:var(--gold);background:#fffdf5;}
+.budget-card.sel .bud-ck{opacity:1;}
+.bud-ck{position:absolute;top:12px;right:12px;width:20px;height:20px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.6rem;color:white;opacity:0;transition:opacity .25s;}
+.bud-price{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--ink);line-height:1;}
+.bud-range{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--warm);margin-bottom:.6rem;letter-spacing:.06em;}
+.bud-name{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;margin-bottom:.3rem;}
+.bud-desc{font-size:.78rem;color:var(--muted);line-height:1.7;}
+.bud-includes{margin-top:.9rem;display:flex;flex-direction:column;gap:3px;}
+.bud-item{font-size:.7rem;color:var(--ink2);display:flex;align-items:center;gap:6px;}
+.bud-item::before{content:'—';color:var(--warm);flex-shrink:0;}
+
+/* ── TIMELINE ── */
+.timeline-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0;position:relative;}
+.timeline-grid::before{content:'';position:absolute;top:28px;left:0;right:0;height:1px;background:var(--border);z-index:0;}
+.tl-step{position:relative;z-index:1;padding:0 8px;}
+.tl-dot{width:56px;height:56px;border-radius:50%;background:var(--cream);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-family:'DM Mono',monospace;font-size:.68rem;font-weight:500;transition:all .3s;cursor:default;}
+.tl-step:hover .tl-dot{background:var(--ink);color:var(--cream);border-color:var(--ink);}
+.tl-week{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;color:var(--warm);text-transform:uppercase;margin-bottom:.3rem;}
+.tl-label{font-family:'Syne',sans-serif;font-size:.88rem;font-weight:700;margin-bottom:.2rem;}
+.tl-desc{font-size:.74rem;color:var(--muted);line-height:1.6;}
+
+/* ── TECH STACK ── */
+.tech-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;}
+.tech-card{background:var(--cream);border:1.5px solid var(--border);padding:1.2rem 1.4rem;cursor:pointer;transition:all .25s;display:flex;align-items:flex-start;gap:12px;}
+.tech-card:hover{border-color:var(--gold);}
+.tech-card.on{border-color:var(--accent);background:#f0f5f2;}
+.tech-card.on .tech-ck{background:var(--accent);border-color:var(--accent);color:white;}
+.tech-ic{font-size:1.3rem;flex-shrink:0;line-height:1;margin-top:2px;}
+.tech-info{flex:1;}
+.tech-name{font-family:'Syne',sans-serif;font-size:.85rem;font-weight:700;margin-bottom:1px;}
+.tech-desc{font-size:.7rem;color:var(--muted);line-height:1.5;}
+.tech-ck{width:16px;height:16px;border-radius:50%;border:1.5px solid var(--mist);display:flex;align-items:center;justify-content:center;font-size:.55rem;flex-shrink:0;margin-top:3px;transition:all .25s;}
+
+/* ── SEO / PERFORMANCE ── */
+.seo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;}
+.seo-card{background:var(--cream);border:1.5px solid var(--border);padding:1.2rem 1.4rem;cursor:pointer;transition:all .25s;display:flex;align-items:flex-start;gap:12px;}
+.seo-card:hover{border-color:var(--gold);}
+.seo-card.on{border-color:var(--accent);background:#f0f5f2;}
+.seo-card.on .seo-ck{background:var(--accent);border-color:var(--accent);color:white;}
+.seo-ck{width:16px;height:16px;border-radius:50%;border:1.5px solid var(--mist);display:flex;align-items:center;justify-content:center;font-size:.55rem;flex-shrink:0;margin-top:3px;transition:all .25s;}
+.seo-ic{font-size:1.2rem;flex-shrink:0;margin-top:2px;}
+.seo-info{flex:1;}
+.seo-name{font-family:'Syne',sans-serif;font-size:.85rem;font-weight:700;margin-bottom:1px;}
+.seo-desc{font-size:.7rem;color:var(--muted);line-height:1.5;}
+
+/* ── MICRO-COPY ── */
+.copy-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;}
+.copy-card{background:var(--cream);border:1.5px solid var(--border);padding:1.4rem;}
+.copy-zone{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--warm);margin-bottom:.5rem;}
+.copy-examples{display:flex;flex-direction:column;gap:6px;}
+.copy-ex{font-family:'Cormorant Garamond',serif;font-size:.95rem;font-style:italic;color:var(--ink2);padding:6px 10px;border-left:2px solid var(--mist);cursor:pointer;transition:all .2s;}
+.copy-ex:hover,.copy-ex.picked{border-left-color:var(--gold);background:rgba(201,168,76,.05);color:var(--ink);}
+
+/* ── ANALYTICS ── */
+.analytics-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:14px;}
+.analytics-card{background:var(--cream);border:1.5px solid var(--border);padding:1.2rem;cursor:pointer;transition:all .25s;text-align:center;}
+.analytics-card:hover{border-color:var(--gold);transform:translateY(-2px);}
+.analytics-card.on{border-color:var(--accent);background:#f0f5f2;}
+.analytics-card.on .ana-ck{background:var(--accent);border-color:var(--accent);color:white;}
+.ana-ic{font-size:1.5rem;margin-bottom:.5rem;}
+.ana-name{font-family:'Syne',sans-serif;font-size:.85rem;font-weight:700;margin-bottom:.2rem;}
+.ana-desc{font-size:.7rem;color:var(--muted);line-height:1.5;}
+.ana-ck{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--mist);display:flex;align-items:center;justify-content:center;font-size:.6rem;margin:auto;margin-top:.6rem;transition:all .25s;}
+
+/* ── INTEGRATIONS ── */
+.int-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:12px;}
+.int-card{background:var(--cream);border:1.5px solid var(--border);padding:1rem 1.2rem;cursor:pointer;transition:all .25s;display:flex;align-items:center;gap:10px;}
+.int-card:hover{border-color:var(--gold);}
+.int-card.on{border-color:var(--accent);background:#f0f5f2;}
+.int-card.on .int-ck{background:var(--accent);border-color:var(--accent);color:white;}
+.int-ic{font-size:1.1rem;flex-shrink:0;}
+.int-name{font-family:'Syne',sans-serif;font-size:.82rem;font-weight:600;flex:1;}
+.int-ck{width:16px;height:16px;border-radius:50%;border:1.5px solid var(--mist);display:flex;align-items:center;justify-content:center;font-size:.55rem;flex-shrink:0;transition:all .25s;}
+
+/* ── ACCESSIBILITY ── */
+.a11y-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;}
+.a11y-card{background:var(--cream);border:1.5px solid var(--border);padding:1.2rem 1.4rem;cursor:pointer;transition:all .25s;display:flex;align-items:flex-start;gap:12px;}
+.a11y-card:hover{border-color:var(--gold);}
+.a11y-card.on{border-color:var(--accent);background:#f0f5f2;}
+.a11y-card.on .a11y-ck{background:var(--accent);border-color:var(--accent);color:white;}
+.a11y-ic{font-size:1.2rem;flex-shrink:0;margin-top:2px;}
+.a11y-info{flex:1;}
+.a11y-name{font-family:'Syne',sans-serif;font-size:.85rem;font-weight:700;margin-bottom:2px;}
+.a11y-desc{font-size:.7rem;color:var(--muted);line-height:1.5;}
+.a11y-ck{width:16px;height:16px;border-radius:50%;border:1.5px solid var(--mist);display:flex;align-items:center;justify-content:center;font-size:.55rem;flex-shrink:0;margin-top:3px;transition:all .25s;}
+
+/* ── PROMPT EXPORT ── */
+.prompt-box{background:rgba(255,255,255,.04);border:1px solid rgba(250,248,243,.1);padding:2rem;}
+.prompt-out{background:#0e0c08;border:1px solid rgba(250,248,243,.12);padding:1.4rem 1.6rem;font-family:'DM Mono',monospace;font-size:.72rem;line-height:1.8;color:rgba(250,248,243,.75);white-space:pre-wrap;word-break:break-word;min-height:160px;max-height:420px;overflow-y:auto;margin-bottom:1rem;border-radius:2px;}
+.prompt-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+.copy-btn{background:var(--gold);color:var(--ink);border:none;padding:12px 26px;font-family:'Outfit',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;cursor:pointer;transition:all .2s;}
+.copy-btn:hover{background:var(--cream);}
+.copy-btn.copied{background:var(--accent);color:white;}
+.dl-btn{background:transparent;color:rgba(250,248,243,.5);border:1px solid rgba(250,248,243,.2);padding:12px 20px;font-family:'Outfit',sans-serif;font-size:.78rem;cursor:pointer;transition:all .2s;}
+.dl-btn:hover{color:var(--cream);border-color:rgba(250,248,243,.5);}
+.prompt-instr{font-size:.75rem;color:rgba(250,248,243,.35);font-family:'DM Mono',monospace;line-height:1.7;max-width:560px;margin-top:.6rem;}
+
 </style>
 </head>
 <body>
@@ -713,21 +814,21 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;heigh
   <h2 class="sec-h">What sections does the site need?</h2>
   <p class="sec-d">Toggle on the sections that belong on your site. These become the navigation and page structure.</p>
   <div class="tog-grid" id="togGrid">
-    <div class="tog on" data-v="Hero / Above the Fold" onclick="togSec(this)"><div><div class="tog-lbl">Hero / Above the Fold</div><div class="tog-sub">First impression headline</div></div><div class="tog-ck">✓</div></div>
-    <div class="tog on" data-v="About / Story" onclick="togSec(this)"><div><div class="tog-lbl">About / Story</div><div class="tog-sub">Who you are & why it matters</div></div><div class="tog-ck">✓</div></div>
-    <div class="tog on" data-v="What I Do / Services" onclick="togSec(this)"><div><div class="tog-lbl">What I Do / Services</div><div class="tog-sub">Offerings & expertise</div></div><div class="tog-ck">✓</div></div>
+    <div class="tog" data-v="Hero / Above the Fold" onclick="togSec(this)"><div><div class="tog-lbl">Hero / Above the Fold</div><div class="tog-sub">First impression headline</div></div><div class="tog-ck"></div></div>
+    <div class="tog" data-v="About / Story" onclick="togSec(this)"><div><div class="tog-lbl">About / Story</div><div class="tog-sub">Who you are & why it matters</div></div><div class="tog-ck"></div></div>
+    <div class="tog" data-v="What I Do / Services" onclick="togSec(this)"><div><div class="tog-lbl">What I Do / Services</div><div class="tog-sub">Offerings & expertise</div></div><div class="tog-ck"></div></div>
     <div class="tog" data-v="Featured Work / Portfolio" onclick="togSec(this)"><div><div class="tog-lbl">Featured Work</div><div class="tog-sub">Case studies, projects</div></div><div class="tog-ck"></div></div>
     <div class="tog" data-v="Speaking / Talks" onclick="togSec(this)"><div><div class="tog-lbl">Speaking / Talks</div><div class="tog-sub">Events, topics, videos</div></div><div class="tog-ck"></div></div>
     <div class="tog" data-v="Writing / Blog" onclick="togSec(this)"><div><div class="tog-lbl">Writing / Blog</div><div class="tog-sub">Articles, essays, ideas</div></div><div class="tog-ck"></div></div>
     <div class="tog" data-v="Books / Publications" onclick="togSec(this)"><div><div class="tog-lbl">Books / Publications</div><div class="tog-sub">Authored works</div></div><div class="tog-ck"></div></div>
-    <div class="tog on" data-v="Testimonials / Social Proof" onclick="togSec(this)"><div><div class="tog-lbl">Testimonials</div><div class="tog-sub">Client & peer endorsements</div></div><div class="tog-ck">✓</div></div>
+    <div class="tog" data-v="Testimonials / Social Proof" onclick="togSec(this)"><div><div class="tog-lbl">Testimonials</div><div class="tog-sub">Client & peer endorsements</div></div><div class="tog-ck"></div></div>
     <div class="tog" data-v="Media / Press" onclick="togSec(this)"><div><div class="tog-lbl">Media / Press</div><div class="tog-sub">Interviews, features, logos</div></div><div class="tog-ck"></div></div>
     <div class="tog" data-v="Credentials / CV" onclick="togSec(this)"><div><div class="tog-lbl">Credentials / CV</div><div class="tog-sub">Experience, education, awards</div></div><div class="tog-ck"></div></div>
     <div class="tog" data-v="Courses / Learning" onclick="togSec(this)"><div><div class="tog-lbl">Courses / Learning</div><div class="tog-sub">Programmes, workshops</div></div><div class="tog-ck"></div></div>
     <div class="tog" data-v="Podcast / Video" onclick="togSec(this)"><div><div class="tog-lbl">Podcast / Video</div><div class="tog-sub">Episodes, YouTube, reels</div></div><div class="tog-ck"></div></div>
     <div class="tog" data-v="Newsletter / Community" onclick="togSec(this)"><div><div class="tog-lbl">Newsletter</div><div class="tog-sub">Email list, community</div></div><div class="tog-ck"></div></div>
     <div class="tog" data-v="Philosophy / Manifesto" onclick="togSec(this)"><div><div class="tog-lbl">Philosophy / Manifesto</div><div class="tog-sub">Core beliefs, worldview</div></div><div class="tog-ck"></div></div>
-    <div class="tog on" data-v="Contact / Get in Touch" onclick="togSec(this)"><div><div class="tog-lbl">Contact</div><div class="tog-sub">How to reach you</div></div><div class="tog-ck">✓</div></div>
+    <div class="tog" data-v="Contact / Get in Touch" onclick="togSec(this)"><div><div class="tog-lbl">Contact</div><div class="tog-sub">How to reach you</div></div><div class="tog-ck"></div></div>
     <div class="tog" data-v="FAQ" onclick="togSec(this)"><div><div class="tog-lbl">FAQ</div><div class="tog-sub">Common questions answered</div></div><div class="tog-ck"></div></div>
   </div>
   <div class="tip">💡 <strong>Tip:</strong> Less is more. Choose 5–8 focused sections that tell a coherent story rather than 12+ that dilute the message.</div>
@@ -876,6 +977,51 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;heigh
   </div>
 </section>
 
+
+<hr class="divider">
+
+<!-- STEP 10 — COLOR PALETTE PSYCHOLOGY -->
+<section class="sec" id="step10">
+  <div class="step-hdr"><div class="step-badge">10</div><div class="sec-tag">Colour Psychology</div></div>
+  <h2 class="sec-h">What should your palette <em>feel</em>?</h2>
+  <p class="sec-d">Beyond the swatch — pick the emotional register you want your palette to trigger. This refines Step 2 into something a designer can act on.</p>
+  <div class="arch-grid" id="colPsychGrid" style="grid-template-columns:repeat(auto-fit,minmax(210px,1fr))">
+    <div class="arch-card" style="--ca:#1a1612" data-v="Serious · Timeless · Authoritative" onclick="selColPsych(this)"><div class="ck">✓</div><div class="a-name" style="font-size:1rem">Serious & Timeless</div><div class="a-desc" style="font-size:.78rem">Dark anchors with restrained neutrals. Feels like a boardroom or a first-edition hardback. Commands without shouting.</div></div>
+    <div class="arch-card" style="--ca:#c9a84c" data-v="Warm · Inviting · Human" onclick="selColPsych(this)"><div class="ck">✓</div><div class="a-name" style="font-size:1rem">Warm & Inviting</div><div class="a-desc" style="font-size:.78rem">Amber, terracotta, cream. Feels like an afternoon conversation over coffee. Approachable and generous.</div></div>
+    <div class="arch-card" style="--ca:#2d4a3e" data-v="Grounded · Natural · Calming" onclick="selColPsych(this)"><div class="ck">✓</div><div class="a-name" style="font-size:1rem">Grounded & Natural</div><div class="a-desc" style="font-size:.78rem">Forest greens, stone, linen. A palette that breathes — rooted in the natural world. Inspires trust.</div></div>
+    <div class="arch-card" style="--ca:#3535a0" data-v="Intellectual · Visionary · Bold" onclick="selColPsych(this)"><div class="ck">✓</div><div class="a-name" style="font-size:1rem">Intellectual & Bold</div><div class="a-desc" style="font-size:.78rem">Deep indigo, electric blue. Signals big ideas, innovation, and a mind that moves fast. Energises.</div></div>
+    <div class="arch-card" style="--ca:#b84e28" data-v="Energetic · Expressive · Creative" onclick="selColPsych(this)"><div class="ck">✓</div><div class="a-name" style="font-size:1rem">Energetic & Expressive</div><div class="a-desc" style="font-size:.78rem">Terracotta, burnt orange, rust. Signals creative heat — a maker who pours energy into their work.</div></div>
+    <div class="arch-card" style="--ca:#6e2848" data-v="Emotive · Distinctive · Memorable" onclick="selColPsych(this)"><div class="ck">✓</div><div class="a-name" style="font-size:1rem">Emotive & Distinctive</div><div class="a-desc" style="font-size:.78rem">Plum, rose, mauve. A palette that takes a stand — confident, feminine, and deeply memorable.</div></div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- STEP 11 — INTEGRATIONS -->
+<section class="sec" id="step11">
+  <div class="step-hdr"><div class="step-badge">11</div><div class="sec-tag">Integrations</div></div>
+  <h2 class="sec-h">Tools & third-party connections</h2>
+  <p class="sec-d">Select every tool you use or want to connect. These shape the back-end architecture and plugin choices.</p>
+  <div class="int-grid" id="intGrid">
+    <div class="int-card" data-v="Mailchimp" onclick="togInt(this)"><div class="int-ic">📧</div><div class="int-name">Mailchimp</div><div class="int-ck"></div></div>
+    <div class="int-card" data-v="ConvertKit / Kit" onclick="togInt(this)"><div class="int-ic">✉️</div><div class="int-name">ConvertKit / Kit</div><div class="int-ck"></div></div>
+    <div class="int-card" data-v="Substack" onclick="togInt(this)"><div class="int-ic">📰</div><div class="int-name">Substack</div><div class="int-ck"></div></div>
+    <div class="int-card" data-v="Calendly / Cal.com" onclick="togInt(this)"><div class="int-ic">📅</div><div class="int-name">Calendly / Cal.com</div><div class="int-ck"></div></div>
+    <div class="int-card" data-v="Notion (CMS)" onclick="togInt(this)"><div class="int-ic">📓</div><div class="int-name">Notion CMS</div><div class="int-ck"></div></div>
+    <div class="int-card" data-v="Google Workspace" onclick="togInt(this)"><div class="int-ic">🔠</div><div class="int-name">Google Workspace</div><div class="int-ck"></div></div>
+    <div class="int-card" data-v="LinkedIn profile sync" onclick="togInt(this)"><div class="int-ic">💼</div><div class="int-name">LinkedIn</div><div class="int-ck"></div></div>
+    <div class="int-card" data-v="YouTube embed" onclick="togInt(this)"><div class="int-ic">▶️</div><div class="int-name">YouTube</div><div class="int-ck"></div></div>
+    <div class="int-card" data-v="Spotify / Podcast RSS" onclick="togInt(this)"><div class="int-ic">🎙️</div><div class="int-name">Podcast / Spotify</div><div class="int-ck"></div></div>
+    <div class="int-card" data-v="Stripe / Razorpay (payments)" onclick="togInt(this)"><div class="int-ic">💳</div><div class="int-name">Stripe / Razorpay</div><div class="int-ck"></div></div>
+    <div class="int-card" data-v="Teachable / Thinkific (courses)" onclick="togInt(this)"><div class="int-ic">🎓</div><div class="int-name">Course Platform</div><div class="int-ck"></div></div>
+    <div class="int-card" data-v="Amazon Author / books" onclick="togInt(this)"><div class="int-ic">📚</div><div class="int-name">Amazon / Books</div><div class="int-ck"></div></div>
+    <div class="int-card" data-v="WhatsApp Business" onclick="togInt(this)"><div class="int-ic">💬</div><div class="int-name">WhatsApp Business</div><div class="int-ck"></div></div>
+    <div class="int-card" data-v="Hotjar / Heatmaps" onclick="togInt(this)"><div class="int-ic">🔥</div><div class="int-name">Hotjar / Heatmaps</div><div class="int-ck"></div></div>
+    <div class="int-card" data-v="Typeform / survey embed" onclick="togInt(this)"><div class="int-ic">📋</div><div class="int-name">Typeform</div><div class="int-ck"></div></div>
+    <div class="int-card" data-v="None / will decide later" onclick="togInt(this)"><div class="int-ic">⏳</div><div class="int-name">Decide Later</div><div class="int-ck"></div></div>
+  </div>
+</section>
+
 <hr class="divider">
 
 <!-- STEP 9 — GOAL -->
@@ -908,21 +1054,24 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;heigh
       <div class="sum-blk" style="grid-column:1/-1"><div class="sum-lbl">05 — Selected Sections</div><div class="sum-chips" id="sSecs"></div></div>
       <div class="sum-blk" style="grid-column:1/-1"><div class="sum-lbl">07 — Visual References</div><div class="sum-chips" id="sRefs"></div></div>
       <div class="sum-blk" style="grid-column:1/-1"><div class="sum-lbl">08 — Special Features</div><div class="sum-chips" id="sFeats"></div></div>
+      <div class="sum-blk"><div class="sum-lbl">10 — Colour Feeling</div><div class="sum-val" id="sColPsych">—</div></div>
+      <div class="sum-blk" style="grid-column:1/-1"><div class="sum-lbl">11 — Integrations</div><div class="sum-chips" id="sInt"></div></div>
     </div>
     <div class="send-box">
-      <div class="send-h">Send this brief →</div>
-      <div class="send-sub">Fill in your details and hit send. We'll receive your full design brief and be in touch within 24 hours.</div>
+      <div class="send-h">Export your Claude Prompt →</div>
+      <div class="send-sub">Your entire design brief is assembled below as a ready-to-use prompt. Copy it and paste it directly into Claude to kick off your website build.</div>
       <div class="send-fields">
-        <div class="send-f"><div class="send-lbl">Your full name</div><input class="send-inp" id="sName" type="text" placeholder="Your name"></div>
-        <div class="send-f"><div class="send-lbl">Your email address</div><input class="send-inp" id="sEmail" type="email" placeholder="your@email.com"></div>
-        <div class="send-f"><div class="send-lbl">Phone / WhatsApp (optional)</div><input class="send-inp" id="sPhone" type="tel" placeholder="+91 ..."></div>
-        <div class="send-f"><div class="send-lbl">Website / LinkedIn (optional)</div><input class="send-inp" id="sUrl" type="url" placeholder="https://..."></div>
-        <div class="send-f full"><div class="send-lbl">Anything else to know?</div><textarea class="send-ta" id="sNotes" placeholder="Budget, timeline, specific ideas, references you love..."></textarea></div>
+        <div class="send-f"><div class="send-lbl">Your full name (optional — personalises the prompt)</div><input class="send-inp" id="sName" type="text" placeholder="Your name" oninput="updSum()"></div>
+        <div class="send-f"><div class="send-lbl">Any extra context (optional)</div><input class="send-inp" id="sNotes2" type="text" placeholder="Deadline, specific ideas, references..."></div>
       </div>
-      <div class="send-actions">
-        <button class="send-btn" id="sendBtn" onclick="submitBrief()">Send My Brief ↗</button>
-        <button class="send-rst" onclick="if(confirm('Reset all?'))location.reload()">Reset All</button>
-        <div class="send-status" id="sendSt"></div>
+      <div class="prompt-box">
+        <div class="prompt-out" id="promptOut">← Fill in your choices above and the prompt will appear here in real-time.</div>
+        <div class="prompt-actions">
+          <button class="copy-btn" id="copyBtn" onclick="copyPrompt()">Copy Prompt ↗</button>
+          <button class="dl-btn" onclick="dlPrompt()">Download as .txt ↓</button>
+          <button class="send-rst" onclick="if(confirm('Reset all choices?'))location.reload()">Reset All</button>
+        </div>
+        <div class="prompt-instr">Paste this prompt into any Claude.ai conversation. It contains your full design brief, palette choice, typography, sections, tone, goals, budget, and tech preferences — everything Claude needs to begin building your website.</div>
       </div>
     </div>
   </div>
@@ -931,26 +1080,20 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;heigh
 <script>
 /* ══════════ STATE ══════════ */
 const S={
-  name:'',arch:null,pal:null,font:null,lay:null,goal:null,
-  secs:['Hero / Above the Fold','About / Story','What I Do / Services','Testimonials / Social Proof','Contact / Get in Touch'],
-  feats:[],refs:[],
+  name:'',arch:null,pal:null,font:null,lay:null,goal:null,colPsych:null,
+  secs:[],
+  feats:[],refs:[],ints:[],
   tones:{t1:40,t2:55,t3:45,t4:60,t5:35,t6:50}
 };
 
 /* ══════════ NAV DOTS ══════════ */
 const nd=document.getElementById('navDots');
-for(let i=1;i<=9;i++){
+for(let i=1;i<=12;i++){
   const d=document.createElement('div');d.className='ndot';d.title='Step '+i;
   d.onclick=()=>document.getElementById('step'+i)?.scrollIntoView({behavior:'smooth'});
   nd.appendChild(d);
 }
-const sids=['step1','step2','step3','step4','step5','step6','step7','step8','step9'];
-new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    const i=sids.indexOf(e.target.id);
-    if(i>-1)nd.querySelectorAll('.ndot')[i].classList.toggle('active',e.isIntersecting);
-  });
-},{threshold:.25}).observe.call(null); // inline fix below:
+const sids=['step1','step2','step3','step4','step5','step6','step7','step8','step9','step10','step11','step12'];
 sids.forEach(id=>{const el=document.getElementById(id);if(el)new IntersectionObserver(entries=>{entries.forEach(e=>{const i=sids.indexOf(e.target.id);if(i>-1)nd.querySelectorAll('.ndot')[i].classList.toggle('active',e.isIntersecting);});},{threshold:.25}).observe(el);});
 
 /* ══════════ SELECTIONS ══════════ */
@@ -960,12 +1103,14 @@ function selGoal(c){document.querySelectorAll('#goalGrid .arch-card').forEach(x=
 function selPal(c){document.querySelectorAll('#palGrid .pal-card').forEach(x=>x.classList.remove('sel'));c.classList.add('sel');S.pal=c.dataset.v;updSum();}
 function selFont(c){document.querySelectorAll('#fontGrid .font-card').forEach(x=>x.classList.remove('sel'));c.classList.add('sel');S.font=c.dataset.v;updSum();}
 function selLay(c){document.querySelectorAll('#layGrid .lay-card').forEach(x=>x.classList.remove('sel'));c.classList.add('sel');S.lay=c.dataset.v;updSum();}
+function selColPsych(c){document.querySelectorAll('#colPsychGrid .arch-card').forEach(x=>x.classList.remove('sel'));c.classList.add('sel');S.colPsych=c.dataset.v;updSum();}
 
 function togSec(el){
   const v=el.dataset.v,ch=el.querySelector('.tog-ck'),on=el.classList.contains('on');
   el.classList.toggle('on',!on);ch.textContent=on?'':'✓';
   S.secs=on?S.secs.filter(s=>s!==v):[...S.secs,v];updSum();
 }
+
 function togFeat(el){
   const v=el.dataset.v,ch=el.querySelector('.feat-ck'),on=el.classList.contains('on');
   el.classList.toggle('on',!on);ch.textContent=on?'':'✓';
@@ -978,6 +1123,13 @@ function togRef(c){
   else{r.textContent='';S.refs=S.refs.filter(x=>x!==v);}
   updSum();
 }
+
+
+function togInt(el){
+  const v=el.dataset.v,ch=el.querySelector('.int-ck'),on=el.classList.contains('on');
+  el.classList.toggle('on',!on);ch.textContent=on?'':'✓';
+  S.ints=on?S.ints.filter(x=>x!==v):[...S.ints,v];updSum();
+}
 function updTone(id,vid){
   const val=parseInt(document.getElementById(id).value);S.tones[id]=val;
   const L={t1:['Personal','Balanced','Professional'],t2:['Philosophical','Balanced','Practical'],t3:['Warm','Balanced','Authoritative'],t4:['Minimalist','Balanced','Expressive'],t5:['Timeless','Balanced','Contemporary'],t6:['Niche','Balanced','Universal']};
@@ -985,241 +1137,435 @@ function updTone(id,vid){
   document.getElementById(vid).textContent=d+' ('+val+')';updSum();
 }
 
-/* ══════════ SUMMARY ══════════ */
+/* ══════════ SUMMARY + PROMPT ══════════ */
 function updSum(){
   const set=(id,v)=>{const el=document.getElementById(id);if(el)el.textContent=v||'—';};
   const chips=(id,arr)=>{const el=document.getElementById(id);if(!el)return;el.innerHTML=arr&&arr.length?arr.map(a=>`<span class="sum-chip">${a}</span>`).join(''):'<span style="color:rgba(250,248,243,.25);font-size:.76rem">None selected</span>';};
   set('sArch',S.arch);set('sPal',S.pal);set('sFnt',S.font);set('sLay',S.lay);set('sGoal',S.goal);
+  set('sColPsych',S.colPsych);
   set('sTone',`Personal↔Pro: ${S.tones.t1} · Philosophical↔Practical: ${S.tones.t2}\nWarm↔Authority: ${S.tones.t3} · Minimal↔Expressive: ${S.tones.t4}\nTimeless↔Contemporary: ${S.tones.t5} · Niche↔Universal: ${S.tones.t6}`);
   chips('sSecs',S.secs);chips('sRefs',S.refs);chips('sFeats',S.feats);
+  chips('sInt',S.ints);
+  // Update name from hero input
+  const ni=document.getElementById('clientName');if(ni&&ni.value)S.name=ni.value;
+  const sni=document.getElementById('sName');if(sni&&sni.value)S.name=sni.value;
+  // Build prompt
+  const p=buildPrompt();
+  const po=document.getElementById('promptOut');if(po)po.textContent=p;
 }
 
-/* ══════════ SUBMIT ══════════ */
-function buildBrief(){
-  return[`CLIENT: ${S.name||'Not provided'}`,`PERSONA: ${S.arch||'—'}`,`PALETTE: ${S.pal||'—'}`,`TYPOGRAPHY: ${S.font||'—'}`,`LAYOUT: ${S.lay||'—'}`,`PRIMARY GOAL: ${S.goal||'—'}`,`SECTIONS: ${S.secs.join(', ')||'None'}`,`REFERENCES: ${S.refs.join(', ')||'None'}`,`FEATURES: ${S.feats.join(', ')||'None'}`,`TONE — Personal↔Pro:${S.tones.t1}, Philosophical↔Practical:${S.tones.t2}, Warm↔Authority:${S.tones.t3}, Minimal↔Expressive:${S.tones.t4}, Timeless↔Contemporary:${S.tones.t5}, Niche↔Universal:${S.tones.t6}`].join('\n');
-}
+function buildPrompt(){
+  const notes=document.getElementById('sNotes2')?.value?.trim()||'';
 
-function buildBriefPDF(nm,em,ph,ur,nt){
-  const {jsPDF}=window.jspdf;
-  const doc=new jsPDF({orientation:'portrait',unit:'mm',format:'a4'});
-  const W=210,M=18,CW=W-M*2;
-  let y=0;
-
-  const ink=[26,22,18],cream=[250,248,243],gold=[201,168,76];
-  const warm=[139,111,71],accent=[45,74,62],muted=[122,114,104];
-  const bdCol=[220,216,208];
-
-  const palHex={
-    'Ink & Bone':['#1a1612','#2e2a25','#8b6f47','#c9a84c','#faf8f3'],
-    'Midnight & Electric':['#08081a','#14143a','#3838ff','#8080ff','#d8d8ff'],
-    'Rose & Slate':['#2e2845','#6e2848','#b86878','#ecd8e0','#fef5f8'],
-    'Saffron & Ivory':['#7a3200','#d06000','#f0a030','#fae0a8','#fffbf0'],
-    'Steel & White':['#18222e','#2e4055','#6888aa','#d0dce8','#ffffff'],
-    'Olive & Sand':['#3a3808','#6a6a20','#a8a860','#e0dea8','#f8f6e8'],
-    'Noir & Rouge':['#111111','#1e1e1e','#cc2222','#e88888','#fff5f5'],
+  // ── Rich lookup maps ──
+  const PALETTES={
+    'Ink & Gold':       {colors:['#1a1612 (Deep Ink — primary background/text)','#2e2a25 (Dark Walnut — secondary dark)','#c9a84c (Antique Gold — accent, CTAs, highlights)','#f5e9c3 (Pale Gold — tinted backgrounds, hover states)','#faf8f3 (Warm Cream — main background, cards)'],mood:'Authoritative · Timeless · Luxe',usage:'Use deep ink for headings and body text, gold exclusively for accent elements (underlines, buttons, icons), cream as the dominant background. Avoid blue tones entirely.'},
+    'Forest & Stone':   {colors:['#1e3a2f (Deep Forest — primary text, dark sections)','#2d4a3e (Forest Green — nav, headers, dark accents)','#8b9e8d (Sage — mid-tone accents, borders)','#c8d8c8 (Pale Sage — tinted backgrounds, dividers)','#f6f5f0 (Linen — main background)'],mood:'Grounded · Wise · Earthy',usage:'Forest green anchors authority. Sage adds warmth without competing. Use linen as a generous background. Avoid high-saturation pops.'},
+    'Indigo & Cream':   {colors:['#1e1e5c (Deep Navy Indigo — primary text, hero backgrounds)','#3535a0 (Royal Indigo — primary accent, links, buttons)','#7878d0 (Periwinkle — hover states, secondary accents)','#d0d0f0 (Lavender Mist — tinted card backgrounds)','#fefefe (Pure White — main background)'],mood:'Intellectual · Bold · Visionary',usage:'Indigo drives all interactive elements. White creates breathing room. Avoid warm tones — keep this cool and precise.'},
+    'Terracotta & Linen':{colors:['#7a2e10 (Deep Rust — primary headings, dark anchors)','#b84e28 (Terracotta — primary accent, buttons, icons)','#e09070 (Warm Peach — secondary accents, highlights)','#f5ddd0 (Blush Linen — tinted backgrounds, cards)','#fffbf8 (Ivory White — main background)'],mood:'Warm · Human · Creative',usage:'Terracotta carries energy. Ivory keeps it breathable. Use rust sparingly for the most important text. No cold blues or greys.'},
+    'Charcoal & Sage':  {colors:['#252525 (Near-Black Charcoal — primary text, headings)','#404040 (Warm Charcoal — body text, secondary elements)','#7a9e7a (Muted Sage Green — accent, icons, underlines)','#c8e0c8 (Pale Green — tinted sections, dividers)','#f6faf6 (Sage White — main background with a breath of green)'],mood:'Clean · Balanced · Modern',usage:'Charcoal grounds everything. Sage adds life without loudness. This palette works in both light and dark modes.'},
+    'Midnight & Electric':{colors:['#08081a (True Midnight — primary background in dark sections)','#14143a (Deep Navy — secondary dark, card backgrounds)','#3838ff (Electric Blue — primary CTA, links, key accents)','#8080ff (Soft Electric — hover states, secondary highlights)','#d8d8ff (Ghost Blue — lightest tint, text on dark bg)'],mood:'Daring · Digital · Futuristic',usage:'This palette lives dark. Electric blue must be used boldly and sparingly — one CTA per section. Light text on dark backgrounds throughout.'},
+    'Rose & Slate':     {colors:['#2e2845 (Deep Slate Purple — primary dark, headings)','#6e2848 (Dark Rose — strong accent, important CTAs)','#b86878 (Dusty Rose — secondary accent, icons)','#ecd8e0 (Blush — tinted sections, card backgrounds)','#fef5f8 (Rose White — main background)'],mood:'Emotive · Elegant · Distinctive',usage:'Slate brings sophistication. Rose adds emotion without being loud. Use blush generously as a section background.'},
+    'Saffron & Ivory':  {colors:['#7a3200 (Deep Amber — primary headings, dark anchors)','#d06000 (Burnt Saffron — primary accent, active states)','#f0a030 (Warm Gold — secondary accent, hover states)','#fae0a8 (Light Amber — tinted backgrounds, card fills)','#fffbf0 (Ivory — main background)'],mood:'Cultural · Vibrant · Rooted',usage:'Saffron is the hero. Use ivory as the canvas so the warm tones breathe. Pairs beautifully with traditional motifs or modern sans-serif type.'},
+    'Steel & White':    {colors:['#18222e (Deep Steel — primary text, dark headers)','#2e4055 (Slate Blue — secondary dark, nav)','#6888aa (Steel Blue — accents, links, icons)','#d0dce8 (Light Steel — borders, tinted backgrounds)','#ffffff (Pure White — main background)'],mood:'Corporate · Trustworthy · Precise',usage:'This palette signals professionalism. White and steel blue dominate. Use dark steel only for the most critical hierarchy moments.'},
+    'Olive & Sand':     {colors:['#3a3808 (Dark Olive — primary headings)','#6a6a20 (Olive Green — primary accent, icons)','#a8a860 (Warm Olive — secondary accent, dividers)','#e0dea8 (Sand — tinted backgrounds, card fills)','#f8f6e8 (Cream Sand — main background)'],mood:'Natural · Understated · Earthy',usage:'Muted and organic. No harsh contrasts. Everything should feel like it grew from the earth.'},
+    'Noir & Rouge':     {colors:['#111111 (Pure Black — primary text, backgrounds)','#1e1e1e (Near-Black — secondary dark sections)','#cc2222 (Rouge Red — single high-impact accent only)','#e88888 (Blush Red — softer accent for secondary use)','#fff5f5 (Rose White — light background tint)'],mood:'Striking · Dramatic · Unforgettable',usage:'Restraint is key. Rouge red should appear on ONE element per section — never diluted. Black and white carry the rest.'},
+    'Custom — We\'ll design it':{colors:['Custom palette to be designed in collaboration'],mood:'Bespoke',usage:'Palette direction and hex values will be developed during the discovery phase.'}
   };
-  function h2r(h){return[parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)];}
 
-  function sf(style,size,col){
-    doc.setFont('helvetica',style||'normal');
-    doc.setFontSize(size||10);
-    doc.setTextColor(...(col||ink));
+  const FONTS={
+    'Cormorant Garamond + DM Sans':           {heading:'Cormorant Garamond (serif) — use at 300–400 weight for headlines, 600 for emphasis. Elegant, literary, editorial.',body:'DM Sans — use at 400 for body, 500 for UI labels. Clean and neutral, lets Cormorant lead.',style:'Editorial · Classic',usage:'Large italic headings with generous letter-spacing. Body text compact and efficient. Works at any size.'},
+    'Playfair Display + Outfit':              {heading:'Playfair Display (serif) — use at 700–900 weight. High contrast strokes, very strong visual presence.',body:'Outfit — use at 300–500 weight. Geometric and modern, excellent legibility.',style:'Confident · Bold',usage:'Headlines should be large and bold. Body can go smaller — the contrast between the two creates energy.'},
+    'Syne + Space Grotesk':                   {heading:'Syne (sans-serif) — use at 700–800 weight. Unusual letter shapes, distinctly contemporary.',body:'Space Grotesk — use at 400–500 weight. Slightly quirky geometric sans.',style:'Modern · Geometric',usage:'Both fonts are sans — unity through geometry. Bold Syne headlines, compact Space Grotesk body. Zero serifs.'},
+    'Instrument Serif + Raleway':             {heading:'Instrument Serif (serif, italic) — almost always set in italic. Delicate and literary.',body:'Raleway — use at 300–400 weight. Elegant, thin, refined.',style:'Literary · Refined',usage:'Low contrast, quiet hierarchy. Both fonts are light. Use size and spacing (not weight) to establish hierarchy.'},
+    'Cormorant Garamond + DM Mono':           {heading:'Cormorant Garamond (serif) — use at 300 weight, wide tracking for headlines.',body:'DM Mono (monospace) — use at 300–400 weight for body text. Creates an editorial/technical hybrid.',style:'Technical · Distinctive',usage:'Unusual combination — the serif headline and mono body creates a research-journal aesthetic. Very distinctive.'},
+    'Syne + Outfit Light':                    {heading:'Syne (sans-serif) — use at 700 weight. Contemporary and sharp.',body:'Outfit Light — use at 300 weight exclusively. Airy and minimal.',style:'Contemporary · Clean',usage:'The weight contrast does all the work. Heavy headlines, whisper-light body. Lots of white space.'},
+    'Lora + Plus Jakarta Sans':               {heading:'Lora (serif) — use at 600 weight. Warm, literary, slightly humanist.',body:'Plus Jakarta Sans — use at 300–500 weight. Modern and friendly.',style:'Warm · Scholarly',usage:'Warm serif meets clean sans. Feels like an academic who is also approachable. Good for content-heavy sites.'},
+    'Bebas Neue + IBM Plex Serif':            {heading:'Bebas Neue (sans-serif display) — ALL CAPS always, use at 400 weight. Very high impact.',body:'IBM Plex Serif — use at 300–400 weight. Engineered serif, slightly technical.',style:'Striking · Contrasted',usage:'All-caps condensed headlines create maximum drama. IBM Plex Serif body grounds it with intellectual weight.'},
+    'Cormorant Garamond Light + Space Grotesk':{heading:'Cormorant Garamond (serif) — use at 300 weight only, very large. Ethereal and understated.',body:'Space Grotesk — use at 400 weight. Keeps things legible without competing.',style:'Ethereal · Minimal',usage:'Everything feels light and spacious. Hierarchy through scale, not weight. Generous white space is mandatory.'}
+  };
+
+  const ARCHETYPES={
+    'The Wise Mentor':       {tagline:'"I\'ve walked this path — let me guide you."',keywords:['depth','trust','timeless','gravitas'],designNotes:'Deep, considered visual language. Serif headings. Muted, sophisticated palette. No loud CTAs — authority is implied, not shouted. Testimonials and case studies carry weight.'},
+    'The Visionary Leader':  {tagline:'"The future I see is worth building now."',keywords:['bold','future','movement','ideas'],designNotes:'Forward-leaning layout. Bold typography. Manifesto-style hero copy. Movement and scale. The site should feel like it is already in the future the client is describing.'},
+    'The Authentic Expert':  {tagline:'"My work speaks — and so does my story."',keywords:['human','credible','story','relatable'],designNotes:'Balance polished work with personal moments. Real photography over stock. Story-led sections. Credentials present but not clinical. Feels like meeting the person, not reading a CV.'},
+    'The Bold Creator':      {tagline:'"I make things that didn\'t exist before."',keywords:['creative','prolific','portfolio','output'],designNotes:'The work IS the design. Portfolio grid is central. Typography can be expressive and playful. Energy and volume signal prolific output. CTAs are direct and confident.'},
+    'The Empathetic Guide':  {tagline:'"Your transformation is my mission."',keywords:['warmth','community','nurturing','accessible'],designNotes:'Soft, inviting visual language. Rounded forms. Warm palette. Testimonials from real people, not institutions. The site should feel like an open door — safe to enter.'},
+    'The Strategic Mind':    {tagline:'"Every decision is a deliberate move."',keywords:['analytical','results','clarity','precision'],designNotes:'Grid-precise layout. Data and outcomes foregrounded. Clean, structured, no visual noise. Frameworks and processes shown visually. The design itself demonstrates strategic thinking.'}
+  };
+
+  const LAYOUTS={
+    'Editorial Magazine':    'Asymmetric text-image layouts. Strong typographic hierarchy. Deliberate use of white space as a design element. Mix of full-width and contained content zones. Pull quotes and large numbers for visual rhythm.',
+    'Full-Bleed Cinematic':  'Edge-to-edge hero images or dark sections. Text overlaid with care. Parallax or depth effects. Navigation is minimal and non-intrusive. Every section should feel like a film frame.',
+    'Minimal Typographic':   'Typography is the only visual element. No decorative imagery. Generous margins. Perfect baseline grid. Subtle dividers. The intellectual confidence of restraint. Word count on every page should be intentional.',
+    'Card Grid Modular':     'Content organised into equal-height cards. Grid adapts fluidly from 1 to 3 columns. Each card has consistent visual hierarchy: category tag → title → excerpt → CTA. Filter and sort controls at the top.',
+    'Narrative Scroll':      'Sections unfold like chapters. Each viewport tells one idea completely. Scroll-triggered reveals. Strong section transitions. The visitor feels guided, not overwhelmed. No horizontal navigation.',
+    'Sidebar Biography':     'Sticky left sidebar (20–25% width) holds photo, name, nav links, and social. Main content area (75–80%) scrolls freely with long-form content. On mobile, sidebar collapses to a top header.',
+    'One-Page Portfolio':    'Single scroll. Masonry or asymmetric work grid above the fold. Brief bio section. Skills or services strip. Testimonials. Contact form at base. Fast and punchy — everything in one visit.',
+    'Split-Screen Hero':     'Hero is a 50/50 vertical split: dark left panel with headline and CTA, right panel with full-bleed image or video. Below the fold, return to standard full-width layout.',
+    'Long-Form Essay / Blog':'Narrow centred column (600–700px max-width). Drop caps on first paragraph. Generous line height (1.8+). Pull quotes. Section headers as anchors. Reading time displayed. Footnotes or asides in margins.'
+  };
+
+  const COL_PSYCH={
+    'Serious · Timeless · Authoritative': 'Emotional target: gravitas, permanence, earned trust. Avoid anything playful, pastel, or saturated. Dark backgrounds are appropriate for hero sections.',
+    'Warm · Inviting · Human':            'Emotional target: approachability, generosity, safety. The site should feel like a warm handshake. Avoid cold blues and stark whites.',
+    'Grounded · Natural · Calming':       'Emotional target: rootedness, trustworthiness, quiet confidence. Inspired by earth, stone, and forest. No neons, no harsh contrasts.',
+    'Intellectual · Visionary · Bold':    'Emotional target: forward-thinking energy, intelligence, momentum. Electric accents on dark grounds. Should feel like the future.',
+    'Energetic · Expressive · Creative':  'Emotional target: creative heat, originality, maker energy. Warm burnt tones. The site should feel like a studio, not a boardroom.',
+    'Emotive · Distinctive · Memorable': 'Emotional target: feeling, elegance, standing apart. Deep jewel tones with feminine energy. Unforgettable without being loud.'
+  };
+
+  // ── Build the prompt ──
+  const pal = S.pal || null;
+  const palData = pal ? PALETTES[pal] : null;
+  const fontData = S.font ? FONTS[S.font] : null;
+  const archData = S.arch ? ARCHETYPES[S.arch] : null;
+  const layData = S.lay ? LAYOUTS[S.lay] : null;
+  const cpData = S.colPsych ? COL_PSYCH[S.colPsych] : null;
+
+  const toneDesc = (id, left, right) => {
+    const v = S.tones[id];
+    if(v < 20) return `Strongly ${left} (${v}/100)`;
+    if(v < 40) return `Leaning ${left} (${v}/100)`;
+    if(v <= 60) return `Balanced between ${left} and ${right} (${v}/100)`;
+    if(v <= 80) return `Leaning ${right} (${v}/100)`;
+    return `Strongly ${right} (${v}/100)`;
+  };
+
+  const lines = [];
+  const ln = (...s) => lines.push(...s);
+  const rule = (c='═') => ln(c.repeat(55));
+  const hr = () => ln('─'.repeat(55));
+
+  rule();
+  ln('WEBSITE DESIGN BRIEF — CLAUDE BUILD PROMPT');
+  ln('Generated by: Website Design Brochure');
+  if(S.name) ln('Client: ' + S.name);
+  rule();
+  ln('');
+  ln('You are a world-class web designer and developer.');
+  ln('Build a complete, production-ready personal brand');
+  ln('website based on the full design brief below.');
+  ln('The output should be a single self-contained HTML');
+  ln('file with all CSS and JavaScript embedded inline,');
+  ln('unless the client specifies a different platform.');
+  ln('');
+  ln('Read every section carefully before writing a');
+  ln('single line of code. The brief is precise.');
+  ln('');
+
+  // ── 01 BRAND PERSONA ──
+  rule('─');
+  ln('01 · BRAND PERSONA & ARCHETYPE');
+  rule('─');
+  if(archData){
+    ln(`Archetype: ${S.arch}`);
+    ln(`Tagline:   ${archData.tagline}`);
+    ln(`Keywords:  ${archData.keywords.join(' · ')}`);
+    ln('');
+    ln('Design direction:');
+    ln(archData.designNotes);
+  } else {
+    ln('Not selected');
   }
-  function hRule(col,thick){
-    doc.setDrawColor(...(col||bdCol));
-    doc.setLineWidth(thick||0.3);
-    doc.line(M,y,W-M,y);
-    y+=5;
+  ln('');
+
+  // ── 02 COLOUR PALETTE ──
+  rule('─');
+  ln('02 · COLOUR PALETTE');
+  rule('─');
+  if(palData){
+    ln(`Name:  ${pal}`);
+    ln(`Mood:  ${palData.mood}`);
+    ln('');
+    ln('Colour tokens (use these exact hex values):');
+    palData.colors.forEach((c,i) => ln(`  ${['Primary','Secondary','Accent','Tint','Background'][i] || i+1}: ${c}`));
+    ln('');
+    ln('Usage rules:');
+    ln(palData.usage);
+  } else {
+    ln('Not selected — use a neutral, professional palette.');
   }
-  function lbl(txt){
-    sf('bold',6.5,gold);
-    doc.text(txt.toUpperCase(),M,y);
-    y+=5;
+  ln('');
+
+  // ── 10 COLOUR PSYCHOLOGY ──
+  rule('─');
+  ln('10 · COLOUR PSYCHOLOGY & EMOTIONAL REGISTER');
+  rule('─');
+  if(cpData){
+    ln(`Register: ${S.colPsych}`);
+    ln('');
+    ln(cpData);
+  } else {
+    ln('Not specified.');
   }
-  function newPage(){
-    doc.addPage();
-    // page top stripe
-    doc.setFillColor(...gold);doc.rect(0,0,W,1.5,'F');
-    y=14;
+  ln('');
+
+  // ── 03 TYPOGRAPHY ──
+  rule('─');
+  ln('03 · TYPOGRAPHY SYSTEM');
+  rule('─');
+  if(fontData){
+    ln(`Pairing:  ${S.font}`);
+    ln(`Style:    ${fontData.style}`);
+    ln('');
+    ln('Heading font:');
+    ln(`  ${fontData.heading}`);
+    ln('');
+    ln('Body font:');
+    ln(`  ${fontData.body}`);
+    ln('');
+    ln('Usage guidance:');
+    ln(fontData.usage);
+    ln('');
+    ln('Scale recommendation:');
+    ln('  Display:  clamp(3rem, 7vw, 6rem)');
+    ln('  H1:       clamp(2rem, 4vw, 3.5rem)');
+    ln('  H2:       clamp(1.5rem, 2.5vw, 2.2rem)');
+    ln('  H3:       1.2rem – 1.4rem');
+    ln('  Body:     0.9rem – 1rem, line-height 1.7–1.85');
+    ln('  Caption:  0.72rem – 0.8rem, DM Mono or body font');
+    ln('  Label:    0.62rem – 0.7rem, uppercase, tracked');
+  } else {
+    ln('Not selected — use a clean, readable type system.');
   }
-  function chk(need){if(y+need>278)newPage();}
+  ln('');
 
-  // ── COVER ──
-  doc.setFillColor(...ink);doc.rect(0,0,W,58,'F');
-  doc.setFillColor(...gold);doc.rect(0,0,5,58,'F');
-  sf('bold',22,cream);doc.text('Website Design Brief',M+7,24);
-  sf('normal',9,[180,174,164]);doc.text('Personal Brand Discovery - Design Choices Summary',M+7,33);
-  sf('normal',8,[150,144,134]);
-  doc.text('Generated: '+new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'}),M+7,41);
-  if(nm){sf('bold',10,gold);doc.text('Prepared for: '+nm,W-M,24,{align:'right'});}
-  y=70;
+  // ── 04 LAYOUT ──
+  rule('─');
+  ln('04 · LAYOUT & PAGE ARCHITECTURE');
+  rule('─');
+  if(layData){
+    ln(`Structure: ${S.lay}`);
+    ln('');
+    ln(layData);
+  } else {
+    ln('Not selected — use a clean, modular layout.');
+  }
+  ln('');
 
-  // ── CLIENT INFO ──
-  sf('bold',7,warm);doc.text('CLIENT INFORMATION',M,y);y+=4;
-  doc.setDrawColor(...gold);doc.setLineWidth(0.5);doc.line(M,y,M+44,y);y+=6;
-  [['Name',nm||'Not provided'],['Email',em||'Not provided'],['Phone',ph||'Not provided'],['Website',ur||'Not provided']].forEach(([k,v])=>{
-    chk(8);
-    sf('bold',8,muted);doc.text(k+': ',M,y);
-    sf('normal',8,ink);doc.text(v,M+doc.getTextWidth(k+': '),y);
-    y+=7;
-  });
-  y+=2;hRule(gold,0.4);y+=2;
+  // ── 05 SECTIONS ──
+  rule('─');
+  ln('05 · REQUIRED PAGE SECTIONS');
+  ln('    (build ALL of these, in this order)');
+  rule('─');
+  if(S.secs.length){
+    const SEC_DETAIL = {
+      'Hero / Above the Fold':      'Full-viewport opening section. Name, title/tagline, one primary CTA. The strongest first impression possible.',
+      'About / Story':               'Personal narrative — who they are, the journey, what drives them. First-person, warm, specific. No bullet-point bio.',
+      'What I Do / Services':        'Clear articulation of offerings. 2–4 service types max. Each with a short title, 1-sentence description, and optional icon.',
+      'Featured Work / Portfolio':   'Showcase of selected projects or case studies. Each entry: title, category tag, 1-sentence outcome, thumbnail.',
+      'Speaking / Talks':            'Past and upcoming speaking engagements. Topic areas, sample talk titles, event logos if available.',
+      'Writing / Blog':              'Latest articles or essays. Card or list format. Title, date, estimated read time, excerpt.',
+      'Books / Publications':        'Authored books with cover, title, publisher, year, 1-sentence summary, buy link.',
+      'Testimonials / Social Proof': '3–5 testimonials. Each: quote, full name, title, company. Real names, not initials. Photo if available.',
+      'Media / Press':               'Media logos (as-seen-in strip) + 2–3 featured quotes from coverage.',
+      'Credentials / CV':            'Education, key roles, awards in a clean timeline or two-column format.',
+      'Courses / Learning':          'Course or workshop offerings. Each: title, format (live/async), duration, outcome, CTA.',
+      'Podcast / Video':             'Embed latest episode or video. Show title, episode list or playlist link.',
+      'Newsletter / Community':      'Email signup with value proposition. "What you\'ll get" in 2–3 bullet points.',
+      'Philosophy / Manifesto':      'Core beliefs in long-form or as a series of short, bold statements.',
+      'Contact / Get in Touch':      'Short contact form (name, email, message). Response time expectation. Optional: preferred contact method.',
+      'FAQ':                         'Accordion-style. 4–8 common questions. Answers should be confident and complete.'
+    };
+    S.secs.forEach((s,i) => {
+      ln(`${i+1}. ${s}`);
+      if(SEC_DETAIL[s]) ln(`   → ${SEC_DETAIL[s]}`);
+    });
+  } else {
+    ln('None selected.');
+  }
+  ln('');
 
-  // ── DESIGN CHOICES ──
-  sf('bold',7,warm);doc.text('DESIGN CHOICES',M,y);y+=4;
-  doc.setDrawColor(...gold);doc.setLineWidth(0.5);doc.line(M,y,M+36,y);y+=8;
+  // ── 06 BRAND VOICE ──
+  rule('─');
+  ln('06 · BRAND VOICE & TONE CALIBRATION');
+  rule('─');
+  ln('Apply these values to ALL copywriting decisions,');
+  ln('microcopy, CTAs, and section headings:');
+  ln('');
+  ln(`  Personal ↔ Professional:    ${toneDesc('t1','Personal','Professional')}`);
+  ln(`  Philosophical ↔ Practical:  ${toneDesc('t2','Philosophical','Practical')}`);
+  ln(`  Warm ↔ Authoritative:       ${toneDesc('t3','Warm','Authoritative')}`);
+  ln(`  Minimalist ↔ Expressive:    ${toneDesc('t4','Minimalist','Expressive')}`);
+  ln(`  Timeless ↔ Contemporary:    ${toneDesc('t5','Timeless','Contemporary')}`);
+  ln(`  Niche ↔ Universal:          ${toneDesc('t6','Niche','Universal')}`);
+  ln('');
+  ln('Use these to calibrate placeholder copy, section');
+  ln('intros, CTA button labels, and form text.');
+  ln('');
 
-  // 01 Persona
-  chk(22);lbl('01 - Brand Persona');
-  if(S.arch){sf('bold',14,ink);doc.text(S.arch,M,y);y+=9;}
-  else{sf('italic',10,muted);doc.text('Not selected',M,y);y+=7;}
-  y+=1;hRule();
+  // ── 07 VISUAL REFERENCES ──
+  rule('─');
+  ln('07 · VISUAL REFERENCES & INSPIRATION');
+  rule('─');
+  const REF_NOTES = {
+    'Naval Ravikant style':            'Hyper-minimal. Pure text, zero imagery. Words carry everything. Near-zero visual decoration.',
+    'Tim Ferriss style':               'Content-rich, multi-format. Personality-forward. Every section has depth and media variety.',
+    'James Clear style':               'Clean, editorial, newsletter-first. Substance over flash. Excellent typographic hierarchy.',
+    'Seth Godin style':                'Quirky, eclectic, opinionated. Deliberately unconventional. Short punchy copy.',
+    'Brené Brown style':               'Warm, story-led. Emotion drives experience. Photography of real people. Generous with vulnerability.',
+    'Paul Graham style':               'Spartan by design. Ideas are the product. Almost no visual design — let the thinking speak.',
+    'Alex Hormozi style':              'Bold, results-first, high-contrast. No ambiguity. Direct value propositions. Loud CTA energy.',
+    'Signal v Noise style':            'Opinionated editorial. Long-form writing culture. Very confident voice. Essay-first structure.',
+    'Derek Sivers style':              'Radically simple. Witty and direct. Personal and idiosyncratic. Nothing wasted.',
+    'Awwwards-level design':           'Craft-first, bespoke, motion-heavy. The design is the message. Exceptional micro-interactions.',
+    'Academic / Knowledge tradition':  'Rooted in learning. Dignified and measured. Cultural weight. Footnotes welcome.',
+    'Something else — will share separately': 'Client has specific references to share during discovery.'
+  };
+  if(S.refs.length){
+    S.refs.forEach(r => {
+      ln(`• ${r}`);
+      if(REF_NOTES[r]) ln(`  Notes: ${REF_NOTES[r]}`);
+    });
+  } else {
+    ln('None selected.');
+  }
+  ln('');
 
-  // 02 Palette
-  chk(32);lbl('02 - Colour Palette');
-  if(S.pal){
-    sf('normal',12,ink);doc.text(S.pal,M,y);y+=6;
-    const sw=palHex[S.pal];
-    if(sw){
-      const swW=CW/sw.length;
-      sw.forEach((h,i)=>{doc.setFillColor(...h2r(h));doc.rect(M+i*swW,y,swW-0.5,9,'F');});
-      y+=10;
-      sf('normal',5.5,muted);
-      sw.forEach((h,i)=>{doc.text(h,M+i*swW+swW/2,y,{align:'center'});});
-      y+=5;
-    }
-  }else{sf('italic',10,muted);doc.text('Not selected',M,y);y+=7;}
-  y+=1;hRule();
+  // ── 08 FEATURES ──
+  rule('─');
+  ln('08 · SPECIAL FEATURES & INTERACTIONS');
+  ln('    (implement ALL of the following)');
+  rule('─');
+  const FEAT_IMPL = {
+    'Dark Mode Toggle':              'Implement a dark/light toggle in the nav. Use CSS custom properties so the entire site repaints without a page reload. Default to system preference (prefers-color-scheme). Persist choice in localStorage.',
+    'Scroll-triggered Animations':   'Elements below the fold should enter with a subtle fade-up (translateY 20px → 0, opacity 0 → 1, 0.5s ease). Use IntersectionObserver. Stagger children with 80ms delays. Do NOT animate on load — only on scroll.',
+    'Custom Cursor':                 'Replace the default cursor with a small dot + lagging ring. Dot: 8px solid ink. Ring: 28px, 1.5px border, 80ms lag behind dot using lerp. Add a "hover" state (ring scales to 48px) when hovering links and buttons.',
+    'Reading Progress Bar':          'Fixed 2.5px bar at the very top of the viewport. Fills left-to-right as the user scrolls. Use the accent/gold colour. Calculate progress as scrollY / (documentHeight - windowHeight).',
+    'Email Newsletter CTA':          'Sticky or inline signup module. Field for email only. Value proposition in 1–2 lines above. Submit triggers a visual confirmation (no page reload). Use a third-party service hook or mock the POST.',
+    'Multi-language Support':        'Language switcher in the nav (flag or text pills). On switch, swap a data-lang attribute on <html>. Store copy for each language in a JS object. Animate the transition with a brief fade.',
+    'Booking / Calendar Integration':'Embed a Calendly or Cal.com widget inline (not a popup). Style the embed to match the site palette as much as possible. Precede it with a short "Book a call" section header and 1-line description.',
+    'Social Media Feed':             'Pull in or mock latest 3 posts from LinkedIn/X/Instagram. Display as a horizontal strip of cards. Each card: avatar, name, text snippet, timestamp, platform icon. Auto-scroll or static.',
+    'Search & Filter':               'Site-wide search input in the nav or a dedicated section. Filter tags for content type (Writing, Talks, Videos, etc.). Highlights matching text. Instant client-side filtering — no page reload.',
+    'Video Background Hero':         'Hero section uses a looping muted autoplay video as the background. Dark overlay (rgba 0,0,0,0.55) for text legibility. Fallback to a static image for devices that block autoplay.',
+    'PDF Resource Downloads':        'Resource library section. Each item: icon, title, short description, file size, download button. Track download clicks. PDFs open in a new tab rather than forcing download.',
+    'Quote / Wisdom Rotator':        'A section or sidebar widget that cycles through 4–8 quotes or aphorisms. Fade transition between quotes. Dot indicators below. 3–4 second interval. Pause on hover.'
+  };
+  if(S.feats.length){
+    S.feats.forEach(f => {
+      ln(`▸ ${f}`);
+      if(FEAT_IMPL[f]) ln(`  Implementation: ${FEAT_IMPL[f]}`);
+      ln('');
+    });
+  } else {
+    ln('No special features selected.');
+  }
 
-  // 03 Typography
-  chk(20);lbl('03 - Typography');
-  if(S.font){sf('normal',12,ink);doc.text(S.font,M,y);y+=9;}
-  else{sf('italic',10,muted);doc.text('Not selected',M,y);y+=7;}
-  hRule();
-
-  // 04 Layout
-  chk(20);lbl('04 - Layout Style');
-  if(S.lay){sf('normal',12,ink);doc.text(S.lay,M,y);y+=9;}
-  else{sf('italic',10,muted);doc.text('Not selected',M,y);y+=7;}
-  hRule();
-
-  // 09 Goal
-  chk(20);lbl('09 - Primary Goal');
+  // ── 09 PRIMARY GOAL ──
+  rule('─');
+  ln('09 · PRIMARY GOAL OF THE WEBSITE');
+  rule('─');
+  const GOAL_NOTES = {
+    'Build credibility & trust':                    'Every section should reinforce authority. Logos, credentials, testimonials, and precise copy are prioritised. CTAs are low-pressure.',
+    'Generate speaking / consulting enquiries':     'Clear contact and booking path throughout. Social proof from well-known clients/events. CTAs: "Invite me to speak" / "Start a conversation".',
+    'Grow an audience / newsletter':               'Email capture is foregrounded on every scroll. Value of subscribing is explicit. CTAs: "Join X,000 readers" / "Get the weekly insight".',
+    'Sell a product or course':                    'Product/course section above the fold. Clear outcome-based copy. Pricing visible. Testimonials tied to specific outcomes. CTA: "Enrol now" / "Buy the book".',
+    'Share ideas & writing':                       'Writing/essay section is the hero. Recent articles prominent. No aggressive CTAs. The work speaks for itself. Light newsletter capture at the end.',
+    'All of the above, balanced':                  'Architecture balances all five goals. One primary CTA per section, each serving a different goal. No single objective dominates.'
+  };
   if(S.goal){
-    sf('normal',11,ink);
-    const gl=doc.splitTextToSize(S.goal,CW);
-    doc.text(gl,M,y);y+=gl.length*5.5+4;
-  }else{sf('italic',10,muted);doc.text('Not selected',M,y);y+=7;}
-  hRule();
+    ln(`Goal: ${S.goal}`);
+    if(GOAL_NOTES[S.goal]){
+      ln('');
+      ln('Design implication:');
+      ln(GOAL_NOTES[S.goal]);
+    }
+  } else {
+    ln('Not selected.');
+  }
+  ln('');
 
-  // 05 Sections
-  chk(18);lbl('05 - Selected Sections');
-  if(S.secs&&S.secs.length){
-    S.secs.forEach(s=>{chk(8);doc.setFillColor(...accent);doc.circle(M+2,y-1.5,1.5,'F');sf('normal',10,ink);doc.text(s,M+7,y);y+=6;});
-  }else{sf('italic',10,muted);doc.text('None selected',M,y);y+=6;}
-  y+=2;hRule();
+  // ── 10 COLOUR PSYCH (already done above, skip)
 
-  // 07 References
-  chk(16);lbl('07 - Visual References');
-  if(S.refs&&S.refs.length){
-    S.refs.forEach(r=>{chk(8);doc.setFillColor(...warm);doc.circle(M+2,y-1.5,1.5,'F');sf('normal',10,ink);doc.text(r,M+7,y);y+=6;});
-  }else{sf('italic',10,muted);doc.text('None selected',M,y);y+=6;}
-  y+=2;hRule();
+  // ── 11 INTEGRATIONS ──
+  rule('─');
+  ln('11 · THIRD-PARTY INTEGRATIONS');
+  rule('─');
+  const INT_NOTES = {
+    'Mailchimp':                    'Add a Mailchimp embed form or API POST to the newsletter CTA section.',
+    'ConvertKit / Kit':             'Add a ConvertKit inline form embed in the newsletter section.',
+    'Substack':                     'Link the newsletter CTA to the client\'s Substack subscribe page.',
+    'Calendly / Cal.com':           'Embed the booking widget inline in the Contact or Services section.',
+    'Notion (CMS)':                 'Structure the site so content (articles, projects) can be pulled from Notion via API.',
+    'Google Workspace':             'Use a Google Form or Apps Script endpoint for the contact form.',
+    'LinkedIn profile sync':        'Link the Credentials section to the client\'s LinkedIn profile.',
+    'YouTube embed':                'Embed the latest YouTube video in the Podcast/Video or Hero section.',
+    'Spotify / Podcast RSS':        'Embed the latest podcast episode player in the Podcast section.',
+    'Stripe / Razorpay (payments)': 'Add a payment button or checkout flow for courses/books using Stripe.js or Razorpay.',
+    'Teachable / Thinkific (courses)':'Link the Courses section to the external platform with an iframe or redirect CTA.',
+    'Amazon Author / books':        'Link book covers to Amazon product pages. Use the Amazon affiliate link format.',
+    'WhatsApp Business':            'Add a floating WhatsApp chat button (bottom-right). Opens wa.me link with pre-filled message.',
+    'Hotjar / Heatmaps':            'Add the Hotjar tracking snippet in the <head>.',
+    'Typeform / survey embed':      'Embed a Typeform in the Contact or FAQ section as an alternative to the plain form.',
+    'None / will decide later':     'No integrations required at this stage.'
+  };
+  if(S.ints.length){
+    S.ints.forEach(i => {
+      ln(`• ${i}`);
+      if(INT_NOTES[i]) ln(`  → ${INT_NOTES[i]}`);
+    });
+  } else {
+    ln('None selected.');
+  }
+  ln('');
 
-  // 08 Features
-  chk(16);lbl('08 - Special Features');
-  if(S.feats&&S.feats.length){
-    S.feats.forEach(f=>{chk(8);doc.setFillColor(...gold);doc.circle(M+2,y-1.5,1.5,'F');sf('normal',10,ink);doc.text(f,M+7,y);y+=6;});
-  }else{sf('italic',10,muted);doc.text('None selected',M,y);y+=6;}
-  y+=2;hRule();
-
-  // 06 Tone
-  chk(56);lbl('06 - Brand Voice Sliders');
-  [['Personal vs Professional',S.tones.t1],
-   ['Philosophical vs Practical',S.tones.t2],
-   ['Warm vs Authoritative',S.tones.t3],
-   ['Minimalist vs Expressive',S.tones.t4],
-   ['Timeless vs Contemporary',S.tones.t5],
-   ['Niche vs Universal',S.tones.t6]
-  ].forEach(function(row){
-    var name=row[0],v=row[1];
-    chk(10);
-    sf('normal',8,muted);doc.text(name,M,y);
-    var bx=M+78,bw=76,bh=3;
-    doc.setFillColor(...bdCol);doc.rect(bx,y-3,bw,bh,'F');
-    if(v>0){doc.setFillColor(...gold);doc.rect(bx,y-3,bw*(v/100),bh,'F');}
-    sf('bold',8,ink);doc.text(String(v),W-M,y,{align:'right'});
-    y+=8;
-  });
-  y+=1;hRule();
-
-  // Notes
-  if(nt&&nt.trim()){
-    chk(20);lbl('Additional Notes');
-    sf('normal',10,ink);
-    var nl=doc.splitTextToSize(nt,CW);
-    doc.text(nl,M,y);y+=nl.length*5.5+4;
-    hRule();
+  // ── ADDITIONAL NOTES ──
+  if(notes){
+    rule('─');
+    ln('ADDITIONAL NOTES FROM CLIENT');
+    rule('─');
+    ln(notes);
+    ln('');
   }
 
-  // Footer every page
-  var total=doc.internal.getNumberOfPages();
-  for(var p=1;p<=total;p++){
-    doc.setPage(p);
-    doc.setFillColor(...ink);doc.rect(0,285,W,12,'F');
-    doc.setFillColor(...gold);doc.rect(0,285,4,12,'F');
-    sf('normal',7,[150,144,134]);
-    doc.text('Website Design Brochure - Design Brief',M+6,292.5);
-    doc.text('Page '+p+' of '+total,W-M,292.5,{align:'right'});
-  }
+  // ── CLOSING INSTRUCTIONS ──
+  rule('═');
+  ln('BEFORE YOU START — PLEASE DO THE FOLLOWING:');
+  rule('─');
+  ln('1. Confirm your understanding of the brief in 3–4');
+  ln('   sentences: archetype, palette, layout, goal.');
+  ln('');
+  ln('2. Ask any clarifying questions about content you');
+  ln('   need (real name, tagline, work examples, etc.)');
+  ln('   before writing code.');
+  ln('');
+  ln('3. Outline the section order you plan to build,');
+  ln('   then proceed once confirmed.');
+  ln('');
+  ln('4. Use the exact hex values from the palette.');
+  ln('   Do not invent new colours.');
+  ln('');
+  ln('5. Use only the specified font pairing. Import');
+  ln('   both from Google Fonts in the <head>.');
+  ln('');
+  ln('6. Every section must use real placeholder copy');
+  ln('   that matches the brand voice dials — not');
+  ln('   Lorem Ipsum.');
+  rule('═');
 
-  return doc.output('blob');
+  return lines.join('\n');
 }
 
-async function submitBrief(){
-  const nm=document.getElementById('sName').value.trim();
-  const em=document.getElementById('sEmail').value.trim();
-  const ph=document.getElementById('sPhone').value.trim();
-  const ur=document.getElementById('sUrl').value.trim();
-  const nt=document.getElementById('sNotes').value.trim();
-  const st=document.getElementById('sendSt');const btn=document.getElementById('sendBtn');
-  if(!nm||!em){st.className='send-status err';st.textContent='Please enter your name and email address.';return;}
-  if(!em.includes('@')){st.className='send-status err';st.textContent='Please enter a valid email address.';return;}
-  btn.disabled=true;btn.textContent='Building PDF…';st.style.display='none';
 
-  // Generate PDF as Blob
-  // Generate PDF as Blob (failure here won't block sending)
-  let pdfBlob=null;
-  try{pdfBlob=buildBriefPDF(nm,em,ph,ur,nt);}catch(pdfErr){console.error('PDF build failed:',pdfErr);}
+function copyPrompt(){
+  const p=buildPrompt();
+  navigator.clipboard.writeText(p).then(()=>{
+    const b=document.getElementById('copyBtn');
+    b.textContent='Copied! ✓';b.classList.add('copied');
+    setTimeout(()=>{b.textContent='Copy Prompt ↗';b.classList.remove('copied');},2200);
+  }).catch(()=>{
+    // fallback
+    const ta=document.createElement('textarea');ta.value=p;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);
+    const b=document.getElementById('copyBtn');b.textContent='Copied! ✓';b.classList.add('copied');setTimeout(()=>{b.textContent='Copy Prompt ↗';b.classList.remove('copied');},2200);
+  });
+}
 
-  btn.textContent='Sending...';
-  try{
-    const fd=new FormData();
-    fd.append('name',nm);
-    fd.append('email',em);
-    fd.append('_subject','Website Design Brief - '+nm);
-    fd.append('_replyto',em);
-    fd.append('client-phone',ph||'-');
-    fd.append('client-url',ur||'-');
-    fd.append('design-brief',buildBrief());
-    fd.append('additional-notes',nt||'-');
-    if(pdfBlob){
-      fd.append('attachment',pdfBlob,'design-brief-'+nm.replace(/\s+/g,'-').toLowerCase()+'.pdf');
-    }
-    const res=await fetch('https://formspree.io/f/xzdolkyn',{method:'POST',headers:{'Accept':'application/json'},body:fd});
-    let data={};try{data=await res.json();}catch(_){}
-    if(res.ok){
-      st.className='send-status ok';
-      st.textContent='Brief sent'+(pdfBlob?' with PDF':'')+"! We'll be in touch at "+em+' within 24 hours.';
-      btn.textContent='Brief Sent';
-    }else{throw new Error(data.error||'Server error '+res.status);}
-  }catch(e){
-    console.error('Submit error:',e);
-    st.className='send-status err';
-    st.textContent='Error: '+e.message+'. Email sidofficial7801@gmail.com directly.';
-    btn.disabled=false;
-    btn.textContent='Send My Brief';
-  }
+function dlPrompt(){
+  const p=buildPrompt();
+  const nm=(S.name||'design-brief').toLowerCase().replace(/\s+/g,'-');
+  const blob=new Blob([p],{type:'text/plain'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=nm+'-claude-prompt.txt';a.click();
 }
 
 /* ══════════════════════════════════
@@ -1230,7 +1576,7 @@ async function submitBrief(){
 let dmOn=false;
 setInterval(()=>{dmOn=!dmOn;document.getElementById('dmS')?.classList.toggle('dark',dmOn);},2400);
 
-/* — Scroll Animations (FIXED: elements are wires, heading doesn't overflow) — */
+/* — Scroll Animations — */
 function runScroll(){
   const els=document.querySelectorAll('#scrollPrev .sc-el');
   els.forEach(e=>e.classList.remove('vis'));
@@ -1239,45 +1585,35 @@ function runScroll(){
 runScroll();
 setInterval(()=>{document.querySelectorAll('#scrollPrev .sc-el').forEach(e=>e.classList.remove('vis'));setTimeout(runScroll,500);},3800);
 
-/* — Custom Cursor (SMOOTH: uses JS lerp animation, not teleportation) — */
+/* — Custom Cursor — */
 (function(){
   const prev=document.getElementById('curPrev');
   if(!prev)return;
   const dot=document.getElementById('cDot');
   const ring=document.getElementById('cRing');
-
-  // Waypoints as percentage of preview box
   const wps=[[30,30],[70,40],[55,70],[25,60],[65,25],[50,50]];
   let wi=0;
   let tx=prev.offsetWidth*0.5, ty=prev.offsetHeight*0.5;
-  let dx=tx, dy=ty; // dot current
-  let rx=tx, ry=ty; // ring current (lags behind)
-
-  // Move to next waypoint every 1.6s
+  let dx=tx, dy=ty;
+  let rx=tx, ry=ty;
   setInterval(()=>{
     wi=(wi+1)%wps.length;
     const w=prev.getBoundingClientRect();
     tx=wps[wi][0]/100*w.width;
     ty=wps[wi][1]/100*w.height;
   },1600);
-
-  // rAF lerp loop — smooth continuous motion
   function tick(){
     const pw=prev.getBoundingClientRect();
-    // Re-target if container resized
     if(!tx) tx=pw.width*0.5;
     if(!ty) ty=pw.height*0.5;
-
-    dx+=(tx-dx)*0.12; // dot chases target
+    dx+=(tx-dx)*0.12;
     dy+=(ty-dy)*0.12;
-    rx+=(dx-rx)*0.06; // ring chases dot (slower)
+    rx+=(dx-rx)*0.06;
     ry+=(dy-ry)*0.06;
-
-    dot.style.left=(dx-3.5)+'px';  // -half width to center
+    dot.style.left=(dx-3.5)+'px';
     dot.style.top =(dy-3.5)+'px';
-    ring.style.left=(rx-13)+'px';  // -half width
+    ring.style.left=(rx-13)+'px';
     ring.style.top =(ry-13)+'px';
-
     requestAnimationFrame(tick);
   }
   requestAnimationFrame(tick);
