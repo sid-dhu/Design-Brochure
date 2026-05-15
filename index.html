@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Website Design Brochure</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Syne:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@300;400;500;600&family=Raleway:wght@300;400;500;600&family=Bebas+Neue&family=Lora:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Serif:ital,wght@0,300;0,400;1,300&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -997,6 +998,192 @@ function updSum(){
 function buildBrief(){
   return[`CLIENT: ${S.name||'Not provided'}`,`PERSONA: ${S.arch||'—'}`,`PALETTE: ${S.pal||'—'}`,`TYPOGRAPHY: ${S.font||'—'}`,`LAYOUT: ${S.lay||'—'}`,`PRIMARY GOAL: ${S.goal||'—'}`,`SECTIONS: ${S.secs.join(', ')||'None'}`,`REFERENCES: ${S.refs.join(', ')||'None'}`,`FEATURES: ${S.feats.join(', ')||'None'}`,`TONE — Personal↔Pro:${S.tones.t1}, Philosophical↔Practical:${S.tones.t2}, Warm↔Authority:${S.tones.t3}, Minimal↔Expressive:${S.tones.t4}, Timeless↔Contemporary:${S.tones.t5}, Niche↔Universal:${S.tones.t6}`].join('\n');
 }
+
+function buildBriefPDF(nm,em,ph,ur,nt){
+  const {jsPDF}=window.jspdf;
+  const doc=new jsPDF({orientation:'portrait',unit:'mm',format:'a4'});
+  const W=210,M=18,CW=W-M*2;
+  let y=0;
+
+  // ── helpers ──
+  const ink=[26,22,18],cream=[250,248,243],gold=[201,168,76],warm=[139,111,71],accent=[45,74,62],muted=[122,114,104];
+  function setFont(style,size,color){
+    doc.setFont('helvetica',style||'normal');
+    doc.setFontSize(size||10);
+    doc.setTextColor(...(color||ink));
+  }
+  function rule(col,thick){
+    doc.setDrawColor(...(col||[220,216,208]));
+    doc.setLineWidth(thick||0.3);
+    doc.line(M,y,W-M,y);
+    y+=4;
+  }
+  function label(txt){
+    setFont('bold',6.5,gold);
+    doc.setCharSpace(1.8);
+    doc.text(txt.toUpperCase(),M,y);
+    doc.setCharSpace(0);
+    y+=5;
+  }
+  function val(txt,opts){
+    if(!txt||txt==='—'){setFont('italic',10,muted);doc.text('Not specified',M,y);y+=6;return;}
+    setFont(opts&&opts.bold?'bold':'normal',opts&&opts.size||11,opts&&opts.color||ink);
+    const lines=doc.splitTextToSize(txt,CW);
+    doc.text(lines,M,y);
+    y+=lines.length*5.5+2;
+  }
+  function block(lbl,content,opts){
+    if(y>265){doc.addPage();y=22;}
+    label(lbl);
+    val(content,opts);
+    y+=1;
+  }
+
+  // ── COVER BLOCK ──
+  doc.setFillColor(...ink);
+  doc.rect(0,0,W,52,'F');
+  // gold bar
+  doc.setFillColor(...gold);
+  doc.rect(0,0,4,52,'F');
+  // title
+  setFont('bold',22,cream);
+  doc.text('Website Design Brief',M+6,22);
+  setFont('normal',9,[180,174,164]);
+  doc.text('Personal Brand Discovery · Design Choices Summary',M+6,30);
+  // date line
+  const dateStr=new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+  setFont('normal',8,[150,144,134]);
+  doc.text('Generated: '+dateStr,M+6,38);
+  // client name right-aligned
+  if(nm){
+    setFont('bold',10,gold);
+    doc.text('Prepared for: '+nm,W-M,22,{align:'right'});
+  }
+  y=62;
+
+  // ── CONTACT ROW ──
+  setFont('bold',7,warm);
+  doc.setCharSpace(1.2);
+  doc.text('CLIENT INFORMATION',M,y);
+  doc.setCharSpace(0);
+  y+=5;
+  // small rule
+  doc.setDrawColor(...gold);doc.setLineWidth(0.5);doc.line(M,y,M+40,y);y+=5;
+
+  const contactItems=[['Name',nm||'—'],['Email',em||'—'],['Phone',ph||'—'],['Website / LinkedIn',ur||'—']];
+  contactItems.forEach(([k,v])=>{
+    if(y>270){doc.addPage();y=22;}
+    setFont('bold',8,muted);doc.text(k+': ',M,y);
+    setFont('normal',8,ink);
+    const vx=M+doc.getTextWidth(k+': ');
+    doc.text(v,vx,y);
+    y+=6;
+  });
+  y+=4;
+  rule(gold,0.5);
+
+  // ── DESIGN CHOICES ──
+  setFont('bold',7,warm);doc.setCharSpace(1.2);doc.text('DESIGN CHOICES',M,y);doc.setCharSpace(0);y+=5;
+  doc.setDrawColor(...gold);doc.setLineWidth(0.5);doc.line(M,y,M+35,y);y+=7;
+
+  block('01 — Brand Persona',S.arch,{size:13,bold:true});
+  rule();
+  block('02 — Colour Palette',S.pal,{size:12});
+  rule();
+  block('03 — Typography',S.font,{size:12});
+  rule();
+  block('04 — Layout Style',S.lay,{size:12});
+  rule();
+  block('09 — Primary Goal',S.goal,{size:12});
+  rule();
+
+  // Sections
+  if(y>255){doc.addPage();y=22;}
+  label('05 — Selected Sections');
+  if(S.secs.length){
+    S.secs.forEach(s=>{
+      if(y>275){doc.addPage();y=22;}
+      doc.setFillColor(...accent);doc.circle(M+2,y-1.5,1.5,'F');
+      setFont('normal',10,ink);doc.text(s,M+7,y);y+=6;
+    });
+  }else{setFont('italic',10,muted);doc.text('None selected',M,y);y+=6;}
+  y+=2;rule();
+
+  // References
+  if(y>255){doc.addPage();y=22;}
+  label('07 — Visual References');
+  if(S.refs.length){
+    S.refs.forEach(r=>{
+      if(y>275){doc.addPage();y=22;}
+      doc.setFillColor(...warm);doc.circle(M+2,y-1.5,1.5,'F');
+      setFont('normal',10,ink);doc.text(r,M+7,y);y+=6;
+    });
+  }else{setFont('italic',10,muted);doc.text('None selected',M,y);y+=6;}
+  y+=2;rule();
+
+  // Features
+  if(y>255){doc.addPage();y=22;}
+  label('08 — Special Features');
+  if(S.feats.length){
+    S.feats.forEach(f=>{
+      if(y>275){doc.addPage();y=22;}
+      doc.setFillColor(...gold);doc.circle(M+2,y-1.5,1.5,'F');
+      setFont('normal',10,ink);doc.text(f,M+7,y);y+=6;
+    });
+  }else{setFont('italic',10,muted);doc.text('None selected',M,y);y+=6;}
+  y+=2;rule();
+
+  // Brand Voice / Tone
+  if(y>240){doc.addPage();y=22;}
+  label('06 — Brand Voice Sliders');
+  const toneMap=[
+    ['Personal ↔ Professional',S.tones.t1],
+    ['Philosophical ↔ Practical',S.tones.t2],
+    ['Warm ↔ Authoritative',S.tones.t3],
+    ['Minimalist ↔ Expressive',S.tones.t4],
+    ['Timeless ↔ Contemporary',S.tones.t5],
+    ['Niche ↔ Universal',S.tones.t6]
+  ];
+  toneMap.forEach(([name,v])=>{
+    if(y>275){doc.addPage();y=22;}
+    setFont('normal',8,muted);doc.text(name,M,y);
+    // bar track
+    const bx=M+74,bw=80,bh=3;
+    doc.setFillColor(220,216,208);doc.roundedRect(bx,y-3,bw,bh,1.5,1.5,'F');
+    // bar fill
+    const fillW=bw*(v/100);
+    doc.setFillColor(...gold);doc.roundedRect(bx,y-3,fillW,bh,1.5,1.5,'F');
+    // value
+    setFont('bold',8,ink);doc.text(v+'',W-M,y,{align:'right'});
+    y+=7;
+  });
+  y+=2;rule();
+
+  // Notes
+  if(nt){
+    if(y>245){doc.addPage();y=22;}
+    label('Additional Notes');
+    setFont('normal',10,ink);
+    const noteLines=doc.splitTextToSize(nt,CW);
+    doc.text(noteLines,M,y);y+=noteLines.length*5.5+4;
+    rule();
+  }
+
+  // ── FOOTER on last page ──
+  const totalPages=doc.getNumberOfPages();
+  for(let p=1;p<=totalPages;p++){
+    doc.setPage(p);
+    doc.setFillColor(...ink);doc.rect(0,285,W,12,'F');
+    doc.setFillColor(...gold);doc.rect(0,285,4,12,'F');
+    setFont('normal',7,[150,144,134]);
+    doc.text('Website Design Brochure · Design Brief',M+6,292.5);
+    setFont('normal',7,[150,144,134]);
+    doc.text('Page '+p+' of '+totalPages,W-M,292.5,{align:'right'});
+  }
+
+  return doc.output('datauristring').split(',')[1]; // base64 only
+}
+
 async function submitBrief(){
   const nm=document.getElementById('sName').value.trim();
   const em=document.getElementById('sEmail').value.trim();
@@ -1006,12 +1193,41 @@ async function submitBrief(){
   const st=document.getElementById('sendSt');const btn=document.getElementById('sendBtn');
   if(!nm||!em){st.className='send-status err';st.textContent='Please enter your name and email address.';return;}
   if(!em.includes('@')){st.className='send-status err';st.textContent='Please enter a valid email address.';return;}
-  btn.disabled=true;btn.textContent='Sending…';st.style.display='none';
+  btn.disabled=true;btn.textContent='Building PDF…';st.style.display='none';
+
+  // Generate PDF
+  let pdfB64='';
+  try{pdfB64=buildBriefPDF(nm,em,ph,ur,nt);}catch(pdfErr){console.warn('PDF gen error:',pdfErr);}
+
+  btn.textContent='Sending…';
   try{
-    const res=await fetch('https://formspree.io/f/xzdolkyn',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({name:nm,email:em,_subject:'Website Design Brief — '+nm,_replyto:em,'client-name':nm,'client-email':em,'client-phone':ph||'—','client-url':ur||'—','design-brief':buildBrief(),'additional-notes':nt||'—'})});
+    const payload={
+      name:nm,email:em,
+      _subject:'Website Design Brief — '+nm,
+      _replyto:em,
+      'client-name':nm,'client-email':em,'client-phone':ph||'—','client-url':ur||'—',
+      'design-brief':buildBrief(),
+      'additional-notes':nt||'—'
+    };
+    // Attach PDF as base64 if generated successfully
+    if(pdfB64){
+      payload['_attachment-name']='design-brief-'+nm.replace(/\s+/g,'-').toLowerCase()+'.pdf';
+      payload['design-brief-pdf']=pdfB64;
+    }
+    const res=await fetch('https://formspree.io/f/xzdolkyn',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)});
     const data=await res.json();
-    if(res.ok){st.className='send-status ok';st.textContent='✓ Brief sent! We\'ll be in touch at '+em+' within 24 hours.';btn.textContent='Brief Sent ✓';}
-    else throw new Error(data.error||'Failed');
+    if(res.ok){
+      st.className='send-status ok';
+      st.textContent='✓ Brief sent'+(pdfB64?' with PDF brochure':'')+`! We'll be in touch at ${em} within 24 hours.`;
+      btn.textContent='Brief Sent ✓';
+      // Also trigger local PDF download so the client has a copy
+      if(pdfB64){
+        const link=document.createElement('a');
+        link.href='data:application/pdf;base64,'+pdfB64;
+        link.download='design-brief-'+nm.replace(/\s+/g,'-').toLowerCase()+'.pdf';
+        link.click();
+      }
+    }else throw new Error(data.error||'Failed');
   }catch(e){st.className='send-status err';st.textContent='Something went wrong. Email sidofficial7801@gmail.com directly.';btn.disabled=false;btn.textContent='Send My Brief ↗';}
 }
 
